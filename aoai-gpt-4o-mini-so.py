@@ -1,5 +1,25 @@
 import json 
 import os 
+from openai import AzureOpenAI
+
+
+os.environ["AZURE_OPENAI_API_KEY"] = "XXX"
+os.environ["AZURE_OPENAI_ENDPOINT"] = "YYY"
+
+# Retrieve the environment variables
+AZURE_OPENAI_API_KEY = os.getenv("AZURE_OPENAI_API_KEY")
+AZURE_OPENAI_API_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
+
+deployment = 'gpt-4o-mini-ozguler'
+
+
+from openai import AzureOpenAI
+    
+client = AzureOpenAI(
+    api_key=os.getenv("AZURE_OPENAI_API_KEY"),  
+    api_version="2024-06-01",
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    )
 
 # Define a simple schema for structured output
 sentiment_analysis_function = {
